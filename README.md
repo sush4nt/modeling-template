@@ -1,2 +1,2 @@
 # modeling-template
-A basic template to obtain quick results into modeling performance
+A basic copy-paste template to obtain quick results into modeling performance
