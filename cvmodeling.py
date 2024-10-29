@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 # from sklearn.model_selection import KFold, StratifiedKFold, GridSearchCV, cross_val_score, cross_validate
 from baseline import *
 
-class CVModeling(BaselineModeling):
+class CVModeling(BaselineClfModeling):
     def __init__(self, estimator, X_train, y_train, X_test, y_test, scoring='f1', cv_type='stratifiedkfold', n_splits=5, param_grid=None):
         super().__init__(estimator, X_train, y_train, X_test, y_test)
         self.cv_type = cv_type
