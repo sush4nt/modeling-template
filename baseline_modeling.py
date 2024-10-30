@@ -14,7 +14,7 @@ from sklearn.metrics import roc_auc_score, roc_curve, precision_recall_curve, pr
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, mean_absolute_percentage_error
 from sklearn.model_selection import KFold, StratifiedKFold, GridSearchCV, cross_val_score, cross_validate
 
-class BaseModeling:
+class BaselineModeling:
     def __init__(self, estimator, X_train, y_train, X_test, y_test):
         self.estimator = estimator
         self.X_train = X_train
@@ -29,7 +29,7 @@ class BaseModeling:
     def log_metrics(self, metrics_dict):
         return {**metrics_dict, 'Model name': self.estimator.__class__.__name__}
 
-class BaselineClfModeling(BaseModeling):
+class BaselineClfModeling(BaselineModeling):
     def fit(self):
         self.estimator.fit(self.X_train, self.y_train)
 
@@ -179,7 +179,7 @@ class BaselineClfModeling(BaseModeling):
         }
         return metrics
 
-class BaselineRegModeling(BaseModeling):
+class BaselineRegModeling(BaselineModeling):
     def fit(self):
         self.estimator.fit(self.X_train, self.y_train)
         self.preds = self.estimator.predict(self.X_test)
